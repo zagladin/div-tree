@@ -1,0 +1,276 @@
+body {
+	height: 100%;
+	margin: 0;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background: rgb(183, 248, 219);
+	background: linear-gradient(180deg, rgba(183, 248, 219, 1) 0%, rgba(80, 167, 194, 1) 100%) fixed;
+}
+
+header,
+footer {
+	text-align: center;
+	font-family: 'Open Sans', sans-serif;
+	color: #555;
+	text-shadow: #ededed 3px 2px 0;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-weight: 800;
+  font-size: 36px;
+	letter-spacing: -3px;
+	line-height: 1;
+	position: relative;
+	margin-top: 48px;
+}
+
+.treeEmoji {
+	font-size: 70px;
+	position: relative;
+	top: -13px;
+}
+
+footer {
+	bottom: 1%;
+	display: inline-block;
+	width: 100%;
+	font-size: 20px;
+	font-weight: 800;
+  text-shadow: #ededed 0px 1px 0;
+  position: relative;
+}
+
+.wrapper {
+	display: grid;
+	grid-template-columns: 100%;
+}
+
+section {
+	margin: 30px;
+}
+
+.controls {
+	display: flex;
+	align-items: center;
+  align-self: baseline;
+  flex-direction: column;
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+}
+
+.searchBlock {
+	margin-top: 0px;
+}
+
+#nodesTree {
+	min-width: 100%;
+	min-height: 300px;
+	max-height: 600px;
+	margin-top: 26px;
+	border-radius: 0px 5px 5px 0px;
+	border: 1px solid white;
+	background-color: white;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	overflow-y: auto;
+	box-shadow: 0px 3px 0px 0px rgba(96, 96, 96, 0.25);
+}
+
+div {
+	margin: 24px 0;
+}
+
+.parent {
+  margin-left: 24px;
+  cursor: pointer;
+  display: block;
+  width: 300px;
+  border-left: 1px dashed #333;
+}
+
+.parent .parent {
+  position: relative;
+}
+
+.parent .parent::after {
+  width: 20px;
+  border-top: 1px dashed #333;
+  margin: 24px 0;
+  content: ' ';
+  height: 1px;
+  position: absolute;
+  left: -24px;
+  top: calc(-24px / 2);
+}
+
+.parent::before {
+  content: "\25B6";
+  transform: rotate(90deg);
+  color: #0b5710;
+  display: inline-block;
+  margin-right: 6px;
+  margin-left: -14px;
+  background: #dadada;
+  padding: 4px 7px;
+  border-radius: 10%;
+  border: 1px solid #999;
+  font-size: 11px;
+  z-index: 2;
+  position: relative;
+}
+
+.parent::before:hover {
+  background: #ccc;
+}
+
+
+.closed::before {
+  transform: rotate(0deg);
+}
+
+.child {
+  width: 330px;
+  margin-left: 25px;
+  position: relative;
+}
+
+.child::before {
+  content: '🌳';
+}
+.child::after {
+  width: 20px;
+  border-top: 1px dashed #333;
+  margin: 24px 0;
+  content: ' ';
+  height: 1px;
+  position: absolute;
+  left: -24px;
+  top: calc(-24px / 2);
+}
+
+.inactive {
+	display: none;
+}
+
+.active {
+	display: block;
+}
+
+.found {
+	background-color: #a0e65a;
+	width: 370px;
+}
+
+.inputField {
+	border-radius: 0px 5px 5px 0px;
+	border: 1px solid #eee;
+	margin: 48px 12px 24px 0px;
+	width: 82%;
+	height: 40px;
+	padding: 0px 15px;
+}
+
+.htmlArea {
+	height: auto;
+	resize: vertical;
+  width: 300px;
+  min-height: 300px;
+}
+
+.button {
+	width: 130px;
+	height: 40px;
+	background: linear-gradient(to bottom, #4eb5e5 0%, #389ed5 100%);
+	border: none;
+	border-radius: 5px;
+	position: relative;
+	border-bottom: 0px solid #2b8bc6;
+	color: #fbfbfb;
+	font-weight: 600;
+	font-family: 'Open Sans', sans-serif;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+	font-size: 15px;
+	text-align: center;
+	text-indent: 5px;
+	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
+	cursor: pointer;
+}
+
+.button:active {
+	box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.2);
+}
+
+#toast {
+	visibility: hidden;
+	max-width: 500px;
+	height: 50px;
+	margin: auto;
+	background-color: #df311d;
+	color: #fff;
+	text-align: center;
+	border-radius: 2px;
+	position: fixed;
+	bottom: 2%;
+	right: 2%;
+	font-size: 17px;
+	white-space: nowrap;
+}
+
+#toast #description {
+	display: inline-block;
+	margin: 15px;
+	color: #fff;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+#toast.show {
+	visibility: visible;
+	animation: fadein 0.5s, fadeout 0.5s 4.5s;
+}
+
+@keyframes fadein {
+	from {
+		bottom: 1%;
+		opacity: 0;
+	}
+
+	to {
+		bottom: 2%;
+		opacity: 1;
+	}
+}
+
+@keyframes fadeout {
+	from {
+		bottom: 2%;
+		opacity: 1;
+	}
+
+	to {
+		bottom: 1%;
+		opacity: 0;
+	}
+}
+
+@media screen and (min-width: 800px) {
+	.wrapper {
+		grid-template-columns: 45% 55%;
+  }
+
+  header {
+    font-size: 70px;
+  }
+  footer {
+    position: fixed;
+  }
+
+  .content {
+    flex-direction: inherit;
+  }
+
+  .htmlArea {
+    width: 600px;
+  }
+}

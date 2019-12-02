@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>Build your tree!
+        <span class="treeEmoji">🌳</span>
+      </header>
+  <div class='wrapper'>
+    <section class="controls">
+      <textarea class="inputField htmlArea" id="html-string" value='' rows='25' type='text' placeholder="Enter html string..."></textarea>
+      <button onclick='getString()' class="button">
+        Parse string
+      </button>
+    </section>
+    <section id='content'>
+      <div class="searchBlock">
+        <form onsubmit="return searchString()">
+          <input class="inputField" id="search-string" value='' type='text' placeholder="Enter search request">
+          <button type='submit' class="button">
+            Search
+          </button>
+        </form>
+      </div>
+        
+      <p id="nodesTree"></p>
+    </section>
+  </div>
+  <div id="error" class="error"></div>
+  <div id="toast">
+    <span id="description"></span>
+  </div>
+  <footer>
+    © 2019
+  </footer>
+  <script src="index.js" async defer></script>
+</body>
+</html>
