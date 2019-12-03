@@ -262,6 +262,7 @@ div {
 @media screen and (max-width: 799px) {
 	.controls {
 		flex-direction: column;
+		margin: auto;
 	}
 }
 
