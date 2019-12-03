@@ -51,23 +51,28 @@ section {
 .controls {
 	display: flex;
 	align-items: center;
-  align-self: baseline;
-  flex-direction: column;
+	align-self: baseline;
+	margin-left: 82px;
+}
+
+.searchingForm {
+	display: flex;
+	align-items: baseline;
 }
 
 .content {
 	display: flex;
-	flex-direction: column;
 }
 
 .searchBlock {
 	margin-top: 0px;
 }
 
+
 #nodesTree {
 	min-width: 100%;
-	min-height: 300px;
-	max-height: 600px;
+	min-height: 360px;
+	max-height: 680px;
 	margin-top: 26px;
 	border-radius: 0px 5px 5px 0px;
 	border: 1px solid white;
@@ -175,7 +180,7 @@ div {
 	height: auto;
 	resize: vertical;
   width: 300px;
-  min-height: 300px;
+  min-height: 450px;
 }
 
 .button {
@@ -254,9 +259,16 @@ div {
 	}
 }
 
+@media screen and (max-width: 799px) {
+	.controls {
+		flex-direction: column;
+	}
+}
+
+
 @media screen and (min-width: 800px) {
 	.wrapper {
-		grid-template-columns: 45% 55%;
+		grid-template-columns: 45% 50%;
   }
 
   header {
@@ -266,11 +278,10 @@ div {
     position: fixed;
   }
 
-  .content {
-    flex-direction: inherit;
-  }
-
   .htmlArea {
     width: 600px;
   }
 }
+
+
+
